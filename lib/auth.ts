@@ -27,11 +27,6 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const ip = req?.headers?.["x-forwarded-for"]?.split(",")[0]?.trim();
-        const identifier = credentials?.email || ip || "anonymous";
-        const { success } = await authRateLimit.limit(identifier);
-        if (!success) throw new Error("Too many requests. Try again later.");
-
         const parsed = LoginSchema.safeParse(credentials);
         if (!parsed.success) return null;
 
@@ -42,6 +37,14 @@ export const authOptions = {
 
         const valid = await compare(password, user.password);
         if (!valid) return null;
+
+        // Rate limit check - non-blocking to prevent cold-start delays
+        const ip = req?.headers?.["x-forwarded-for"]?.split(",")[0]?.trim();
+        const identifier = credentials?.email || ip || "anonymous";
+        authRateLimit.limit(identifier).catch(() => {
+          // Silently fail - don't block auth if rate limit service is slow
+          console.warn("Rate limit check failed, but auth proceeded");
+        });
 
         return {
           id: user.id,

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 interface Props {
-  onSuccess?: () => void;
+  onSuccess?: () => void | Promise<void>;
   showSignUpLink?: boolean;
 }
 
@@ -31,15 +31,23 @@ export default function LoginForm({ onSuccess, showSignUpLink = true }: Props) {
     const result = await signIn("credentials", {
       email,
       password,
+      callbackUrl: "/dashboard",
       redirect: false,
     });
 
     if (result?.error) {
       setError("Invalid email or password");
       setPending(false);
-    } else {
-      onSuccess?.();
+      return;
     }
+
+    setPending(false);
+    if (result?.url) {
+      window.location.assign(result.url);
+      return;
+    }
+
+    await onSuccess?.();
   };
 
   return (
