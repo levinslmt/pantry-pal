@@ -20,7 +20,7 @@ export async function signup(_prevState: unknown, formData: FormData) {
     return { error: "An account with this email already exists" };
   }
 
-  const hashedPassword = await hash(password, 12);
+  const hashedPassword = await hash(password, 10);
 
   await prisma.user.create({
     data: { name, email, password: hashedPassword },
