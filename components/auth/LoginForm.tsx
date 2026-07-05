@@ -101,7 +101,7 @@ export default function LoginForm({ onSuccess, showSignUpLink = true }: Props) {
         {showSignUpLink && (
           <p className="mt-6 text-center text-xs text-muted-foreground">
             Don&apos;t have an account?{" "}
-            <a href="/register" className="font-medium text-foreground hover:underline">
+            <a href="/register" className="font-medium text-primary hover:underline">
               Sign up
             </a>
           </p>

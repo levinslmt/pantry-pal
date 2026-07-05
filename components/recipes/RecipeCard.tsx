@@ -169,14 +169,14 @@ export default function RecipeCard({ recipe, isStreaming, onSave, isSaved, savin
 
         {/* Tips */}
         {recipe.tips && recipe.tips.length > 0 && (
-          <div className="px-6 py-5 bg-amber-50/50 dark:bg-amber-950/10 border-t border-amber-100 dark:border-amber-900/20">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-2 flex items-center gap-1.5">
+          <div className="px-6 py-5 bg-primary/5 border-t border-primary/10">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-primary/80 dark:text-primary/90 mb-2 flex items-center gap-1.5">
               <SparklesIcon className="size-3" /> Chef&apos;s Tips
             </h3>
-            <ul className="space-y-1.5 text-sm text-amber-800/90 dark:text-amber-200/80">
+            <ul className="space-y-1.5 text-sm text-foreground/80">
               {recipe.tips.map((tip, i) => (
                 <li key={i} className="flex gap-2">
-                  <span className="text-amber-500">•</span> {tip}
+                  <span className="text-primary/60">•</span> {tip}
                 </li>
               ))}
             </ul>

@@ -88,7 +88,7 @@ export default function LandingPage() {
           variant="outline"
           className="mb-8 px-4 py-1.5 text-xs gap-2 rounded-full border-primary/20 bg-primary/5 text-primary font-medium"
         >
-          <span className="size-1.5 rounded-full bg-green-500 animate-pulse" />
+          <span className="size-1.5 rounded-full bg-secondary animate-pulse" />
           Powered by Gemini 2.5 Flash
         </Badge>
 
@@ -128,11 +128,11 @@ export default function LandingPage() {
         {/* Social Proof */}
         <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <StarIcon className="size-4 fill-amber-500 text-amber-500" />
+            <StarIcon className="size-4 fill-primary text-primary" />
             <span className="font-medium">500+ recipes generated</span>
           </div>
           <div className="flex items-center gap-2">
-            <CircleCheckBigIcon className="size-4 text-green-500" />
+            <CircleCheckBigIcon className="size-4 text-secondary" />
             <span className="font-medium">Fast & Easy</span>
           </div>
           <div className="flex items-center gap-2">

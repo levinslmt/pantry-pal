@@ -93,7 +93,7 @@ export default function RecipeForm({ onGenerate, isLoading }: Props) {
         {ingredientList.length > 0 && (
           <div className="flex flex-wrap gap-1.5 pt-1">
             {ingredientList.map((ing) => (
-              <Badge key={ing} variant="secondary" className="gap-1.5 pl-2.5 pr-1.5 py-1 text-xs font-normal bg-primary/5 text-foreground border border-border/50">
+              <Badge key={ing} variant="outline" className="gap-1.5 pl-2.5 pr-1.5 py-1 text-xs font-normal bg-primary/10 text-primary border-primary/30">
                 {ing}
                 <button
                   type="button"
@@ -169,8 +169,8 @@ export default function RecipeForm({ onGenerate, isLoading }: Props) {
               onClick={() => toggleDietary(d)}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
                 dietary.includes(d)
-                  ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                  : "bg-background text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
+                  ? "bg-secondary text-secondary-foreground border-secondary shadow-sm"
+                  : "bg-secondary/10 text-secondary border-secondary/30 hover:bg-secondary/20"
               }`}
             >
               {d}

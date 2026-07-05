@@ -212,7 +212,7 @@ export default function DashboardClient({ user }: Props) {
                     you.
                   </p>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground/80">
-                    <div className="size-1.5 rounded-full bg-green-500 animate-pulse" />
+                    <div className="size-1.5 rounded-full bg-secondary animate-pulse" />
                     <span>AI Engine Online & Ready</span>
                   </div>
                 </CardContent>

@@ -60,10 +60,10 @@ function header(doc: jsPDF, txt: string) {
   checkPage(doc, 22);
   doc.setFontSize(10);
   doc.setFont("helvetica", "bold");
-  doc.setTextColor(249, 115, 22);
+  doc.setTextColor(217, 123, 79);
   doc.text(txt.toUpperCase(), MARGIN, y);
   y += 6;
-  doc.setDrawColor(249, 115, 22);
+  doc.setDrawColor(217, 123, 79);
   doc.setLineWidth(0.5);
   doc.line(MARGIN, y, PAGE_W - MARGIN, y);
   y += 6;
